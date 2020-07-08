@@ -2,6 +2,7 @@ package mtools
 
 import (
 	"errors"
+	"fmt"
 	"strconv"
 	"time"
 
@@ -43,9 +44,15 @@ func DecideType(src interface{}) (string, error) {
 	case string:
 		tmp = string(t)
 	default:
-		//log.Error("no" this type %T", t) //return errors.New("no this type")
 		err := errors.New("no this type")
 		return tmp, err
 	}
 	return tmp, nil
+}
+
+//checkErr 检查错误
+func checkErr(str string, err error) {
+	if err != nil {
+		fmt.Println(str, err)
+	}
 }

@@ -50,8 +50,8 @@ func DecideType(src interface{}) (string, error) {
 	return tmp, nil
 }
 
-//checkErr 检查错误
-func checkErr(str string, err error) {
+//CheckErr 检查错误
+func CheckErr(str string, err error) {
 	if err != nil {
 		fmt.Println(str, err)
 	}

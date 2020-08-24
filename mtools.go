@@ -41,6 +41,10 @@ func DecideType(src interface{}) (string, error) {
 		tmp = strconv.Itoa(int(t))
 	case int64:
 		tmp = strconv.FormatInt(t, 10)
+	case float32:
+		tmp = strconv.FormatFloat(float64(t), 'f', -1, 32)
+	case float64:
+		tmp = strconv.FormatFloat(t, 'f', -1, 64)
 	case string:
 		tmp = string(t)
 	default:

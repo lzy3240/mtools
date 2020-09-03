@@ -3,6 +3,7 @@ package mtools
 import (
 	"errors"
 	"fmt"
+	"os"
 	"strconv"
 	"time"
 
@@ -59,4 +60,16 @@ func CheckErr(str string, err error) {
 	if err != nil {
 		fmt.Println(str, err)
 	}
+}
+
+//PathExists 目录判断
+func PathExists(path string) bool {
+	_, err := os.Stat(path) //os.Stat获取文件信息
+	if err != nil {
+		if os.IsExist(err) {
+			return true
+		}
+		return false
+	}
+	return true
 }
